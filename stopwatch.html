@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+
+<!-- _______________________________head_____________________________ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dudy — Stopwatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="stopwatch.css" />
+  <script src="scriptA.js" defer></script>
+  <script src="scriptB.js" defer></script>
+  <script src="scriptF.js" defer></script>
+
+</head>
+<body>
+
+<!-- _______________________________preloader_____________________________ -->
+
+<div id="preloader">
+  <div class="loader-icon">📚</div>
+  <span class="loader-text">Study Dudy</span>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- _______________________________navbar_____________________________ -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📖</div>
+      <span class="logo-name">Study Dudy</span>
+    </a>
+    <div class="spacer"></div>
+    <a href="index.html" class="nav-home">🏠 Home</a>
+    <div class="nav-date" id="navDate"></div>
+
+    <!-- _______________________________theme dropdown_____________________________ -->
+
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🎨</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option" data-theme="default">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#c9b8f5,#f5c6e0)"></div> Purple
+        </div>
+        <div class="theme-option" data-theme="pink">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#f48fb1,#fce4ec)"></div> Pink
+        </div>
+        <div class="theme-option" data-theme="blue">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#90caf9,#b3e5fc)"></div> Blue
+        </div>
+        <div class="theme-option" data-theme="black">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#a78bfa,#312e81)"></div> Black
+        </div>
+      </div>
+    </div>
+
+    <!-- _______________________________sections dropdown_____________________________ -->
+
+    <div class="nav-dropdown">
+      <button class="dropdown-toggle" id="sectionsBtn">
+        Sections <span class="arrow">▼</span>
+      </button>
+      <div class="section-dropdown" id="sectionsDropdown">
+        <button class="sec-btn" onclick="location.href='calculator.html'">🧮 Mark Calculator</button>
+        <button class="sec-btn" onclick="location.href='stopwatch.html'">⏱️ Stopwatch</button>
+        <button class="sec-btn" onclick="location.href='todo.html'">✅ To-Do</button>
+        <button class="sec-btn" onclick="location.href='calendar.html'">📅 Calendar</button>
+      </div>
+    </div>
+
+    <!-- _______________________________3-dash button_____________________________ -->
+
+    <button class="three-dash" id="threeDash" aria-label="Menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+  </div>
+
+  <!-- _______________________________mobile dropdown_____________________________ -->
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="mobile-date" id="mobileDateDisplay"></div>
+    <a href="index.html"><button class="mobile-home">🏠 Home</button></a>
+    <a href="calculator.html"><button class="mobile-sec-btn"><span>🧮</span> Mark Calculator</button></a>
+    <a href="stopwatch.html"><button class="mobile-sec-btn"><span>⏱️</span> Stopwatch</button></a>
+    <a href="todo.html"><button class="mobile-sec-btn"><span>✅</span> To-Do</button></a>
+    <a href="calendar.html"><button class="mobile-sec-btn"><span>📅</span> Calendar</button></a>
+    <div class="mobile-themes">
+      <button class="mobile-theme-opt" data-theme="default">🌸 Purple</button>
+      <button class="mobile-theme-opt" data-theme="pink">💗 Pink</button>
+      <button class="mobile-theme-opt" data-theme="blue">💙 Blue</button>
+      <button class="mobile-theme-opt" data-theme="black">🖤 Black</button>
+    </div>
+  </div>
+
+</nav>
+
+<!-- _______________________________page content_____________________________ -->
+
+<div class="sw-page">
+
+  <div class="sw-header">
+    <h1 class="sw-title">⏱️ Stopwatch</h1>
+    <p class="sw-subtitle">Track your study sessions and save your history.</p>
+  </div>
+
+  <div class="sw-layout">
+
+    <!-- _______________________________left — stopwatch_____________________________ -->
+
+    <div class="sw-main">
+
+      <!-- subject input -->
+      <div class="sw-card sw-subject-card">
+        <label class="sw-label">📚 Subject / Session label</label>
+        <input type="text" id="sw-subject" placeholder="e.g. Math, Biology, Reading..." />
+      </div>
+
+      <!-- timer display -->
+      <div class="sw-card sw-timer-card">
+        <div class="sw-display" id="swDisplay">00:00:00</div>
+        <div class="sw-ms" id="swMs">.000</div>
+        <div class="sw-controls">
+          <button class="btn sw-btn-start" id="swStartBtn">▶ Start</button>
+          <button class="btn sw-btn-secondary" id="swResetBtn" disabled>↺ Reset</button>
+          <button class="btn sw-btn-secondary" id="swSaveBtn" disabled>💾 Save Session</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- _______________________________right — history_____________________________ -->
+
+    <div class="sw-sidebar">
+
+      <!-- stats -->
+      <div class="sw-card sw-stats-card">
+        <h3 class="sw-card-title">📊 Today's Stats</h3>
+        <div class="sw-stats-grid">
+          <div class="sw-stat">
+            <span class="sw-stat-num" id="stat-sessions">0</span>
+            <span class="sw-stat-lbl">Sessions</span>
+          </div>
+          <div class="sw-stat">
+            <span class="sw-stat-num" id="stat-total-time">0m</span>
+            <span class="sw-stat-lbl">Total Time</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- session history -->
+      <div class="sw-card sw-history-card">
+        <div class="sw-history-header">
+          <h3 class="sw-card-title">🗂 Session History</h3>
+          <button class="btn btn-secondary sw-clear-btn" id="swClearBtn">🗑 Clear</button>
+        </div>
+        <div id="swHistory"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- _______________________________footer_____________________________ -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📖 Study Dudy</span>
+      <span class="footer-tagline">Stay focused. Stay ahead. 🎓</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="calculator.html">🧮 Marks</a>
+      <a href="stopwatch.html">⏱️ Stopwatch</a>
+      <a href="todo.html">✅ To-Do</a>
+      <a href="calendar.html">📅 Calendar</a>
+    </div>
+    <div class="footer-copy">
+      <span id="footerYear"></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

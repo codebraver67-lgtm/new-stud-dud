@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+
+<!-- _______________________________head_____________________________ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dudy — Countdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="countdown.css" />
+  <script src="scriptA.js" defer></script>
+  <script src="scriptB.js" defer></script>
+  <script src="scriptG.js" defer></script>
+
+</head>
+<body>
+
+<!-- _______________________________preloader_____________________________ -->
+
+<div id="preloader">
+  <div class="loader-icon">📚</div>
+  <span class="loader-text">Study Dudy</span>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- _______________________________navbar_____________________________ -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📖</div>
+      <span class="logo-name">Study Dudy</span>
+    </a>
+    <div class="spacer"></div>
+    <a href="index.html" class="nav-home">🏠 Home</a>
+    <div class="nav-date" id="navDate"></div>
+
+    <!-- _______________________________theme dropdown_____________________________ -->
+
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🎨</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option" data-theme="default">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#c9b8f5,#f5c6e0)"></div> Purple
+        </div>
+        <div class="theme-option" data-theme="pink">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#f48fb1,#fce4ec)"></div> Pink
+        </div>
+        <div class="theme-option" data-theme="blue">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#90caf9,#b3e5fc)"></div> Blue
+        </div>
+        <div class="theme-option" data-theme="black">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#a78bfa,#312e81)"></div> Black
+        </div>
+      </div>
+    </div>
+
+    <!-- _______________________________sections dropdown_____________________________ -->
+
+    <div class="nav-dropdown">
+      <button class="dropdown-toggle" id="sectionsBtn">
+        Sections <span class="arrow">▼</span>
+      </button>
+      <div class="section-dropdown" id="sectionsDropdown">
+        <button class="sec-btn" onclick="location.href='calculator.html'">🧮 Mark Calculator</button>
+        <button class="sec-btn" onclick="location.href='stopwatch.html'">⏱️ Stopwatch</button>
+        <button class="sec-btn" onclick="location.href='todo.html'">✅ To-Do</button>
+        <button class="sec-btn" onclick="location.href='calendar.html'">📅 Calendar</button>
+        <button class="sec-btn" onclick="location.href='countdown.html'">⏳ Countdown</button>
+        <button class="sec-btn" onclick="location.href='flashcards.html'">🃏 Flashcards</button>
+      </div>
+    </div>
+
+    <!-- _______________________________3-dash button_____________________________ -->
+
+    <button class="three-dash" id="threeDash" aria-label="Menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+  </div>
+
+  <!-- _______________________________mobile dropdown_____________________________ -->
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="mobile-date" id="mobileDateDisplay"></div>
+    <a href="index.html"><button class="mobile-home">🏠 Home</button></a>
+    <a href="calculator.html"><button class="mobile-sec-btn"><span>🧮</span> Mark Calculator</button></a>
+    <a href="stopwatch.html"><button class="mobile-sec-btn"><span>⏱️</span> Stopwatch</button></a>
+    <a href="todo.html"><button class="mobile-sec-btn"><span>✅</span> To-Do</button></a>
+    <a href="calendar.html"><button class="mobile-sec-btn"><span>📅</span> Calendar</button></a>
+    <a href="countdown.html"><button class="mobile-sec-btn"><span>⏳</span> Countdown</button></a>
+    <a href="flashcards.html"><button class="mobile-sec-btn"><span>🃏</span> Flashcards</button></a>
+    <div class="mobile-themes">
+      <button class="mobile-theme-opt" data-theme="default">🌸 Purple</button>
+      <button class="mobile-theme-opt" data-theme="pink">💗 Pink</button>
+      <button class="mobile-theme-opt" data-theme="blue">💙 Blue</button>
+      <button class="mobile-theme-opt" data-theme="black">🖤 Black</button>
+    </div>
+  </div>
+
+</nav>
+
+<!-- _______________________________page content_____________________________ -->
+
+<div class="cd-page">
+
+  <div class="cd-header">
+    <h1 class="cd-title">⏳ Countdown Timer</h1>
+    <p class="cd-subtitle">Set your time, label your session, and stay focused.</p>
+  </div>
+
+  <!-- _______________________________setup card_____________________________ -->
+
+  <div class="cd-setup-card">
+
+    <div class="cd-setup-label">⚙️ Set Your Timer</div>
+
+    <!-- label input -->
+    <div class="cd-input-group">
+      <label class="cd-label">📌 Session Label</label>
+      <input type="text" id="cd-label-input" placeholder="e.g. Exam prep, Break, Reading..." />
+    </div>
+
+    <!-- time inputs -->
+    <div class="cd-time-inputs">
+      <div class="cd-time-group">
+        <input type="number" id="cd-hours" min="0" max="23" value="0" placeholder="0" />
+        <label>Hours</label>
+      </div>
+      <div class="cd-time-sep">:</div>
+      <div class="cd-time-group">
+        <input type="number" id="cd-minutes" min="0" max="59" value="25" placeholder="0" />
+        <label>Minutes</label>
+      </div>
+      <div class="cd-time-sep">:</div>
+      <div class="cd-time-group">
+        <input type="number" id="cd-seconds" min="0" max="59" value="0" placeholder="0" />
+        <label>Seconds</label>
+      </div>
+    </div>
+
+    <!-- quick presets -->
+    <div class="cd-presets">
+      <span class="cd-preset-label">Quick:</span>
+      <button class="cd-preset-btn" data-h="0" data-m="5"  data-s="0">5m</button>
+      <button class="cd-preset-btn" data-h="0" data-m="10" data-s="0">10m</button>
+      <button class="cd-preset-btn" data-h="0" data-m="15" data-s="0">15m</button>
+      <button class="cd-preset-btn" data-h="0" data-m="25" data-s="0">25m</button>
+      <button class="cd-preset-btn" data-h="0" data-m="45" data-s="0">45m</button>
+      <button class="cd-preset-btn" data-h="1" data-m="0"  data-s="0">1h</button>
+      <button class="cd-preset-btn" data-h="2" data-m="0"  data-s="0">2h</button>
+      <button class="cd-preset-btn" data-h="3" data-m="0"  data-s="0">3h</button>
+    </div>
+
+    <!-- controls -->
+    <div class="cd-setup-controls">
+      <button class="btn cd-btn-start" id="cdStartBtn">▶ Start</button>
+      <button class="btn cd-btn-secondary" id="cdResetBtn" disabled>↺ Reset</button>
+    </div>
+
+  </div>
+
+  <!-- _______________________________timer display_____________________________ -->
+
+  <div class="cd-display-card" id="cdDisplayCard">
+
+    <div class="cd-session-label" id="cdSessionLabel"></div>
+
+    <div class="cd-clock">
+      <div class="cd-clock-group">
+        <div class="cd-clock-num" id="cdHours">00</div>
+        <div class="cd-clock-unit">hours</div>
+      </div>
+      <div class="cd-clock-sep">:</div>
+      <div class="cd-clock-group">
+        <div class="cd-clock-num" id="cdMinutes">00</div>
+        <div class="cd-clock-unit">minutes</div>
+      </div>
+      <div class="cd-clock-sep">:</div>
+      <div class="cd-clock-group">
+        <div class="cd-clock-num" id="cdSeconds">00</div>
+        <div class="cd-clock-unit">seconds</div>
+      </div>
+    </div>
+
+    <!-- progress bar -->
+    <div class="cd-progress-wrap">
+      <div class="cd-progress-fill" id="cdProgressFill" style="width:100%"></div>
+    </div>
+
+    <div class="cd-done-msg" id="cdDoneMsg">⏰ Time's up!</div>
+
+  </div>
+
+  <!-- _______________________________recent timers_____________________________ -->
+
+  <div class="cd-history-card">
+    <div class="cd-history-header">
+      <h3 class="cd-history-title">🗂 Recent Timers</h3>
+      <button class="btn btn-secondary cd-clear-btn" id="cdClearBtn">🗑 Clear</button>
+    </div>
+    <div id="cdHistory"></div>
+  </div>
+
+</div>
+
+<!-- _______________________________footer_____________________________ -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📖 Study Dudy</span>
+      <span class="footer-tagline">Stay focused. Stay ahead. 🎓</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="calculator.html">🧮 Marks</a>
+      <a href="stopwatch.html">⏱️ Stopwatch</a>
+      <a href="todo.html">✅ To-Do</a>
+      <a href="calendar.html">📅 Calendar</a>
+      <a href="countdown.html">⏳ Countdown</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+    </div>
+    <div class="footer-copy">
+      <span id="footerYear"></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

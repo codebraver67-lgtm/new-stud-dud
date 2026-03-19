@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+
+<!-- _______________________________head_____________________________ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dudy 📖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="scriptA.js" defer></script>
+  <script src="scriptB.js" defer></script>
+
+</head>
+<body>
+
+<!-- _______________________________preloader_____________________________ -->
+
+<div id="preloader">
+  <div class="loader-icon">📚</div>
+  <span class="loader-text">Study Dudy</span>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- _______________________________navbar_____________________________ -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📖</div>
+      <span class="logo-name">Study Dudy</span>
+    </a>
+    <div class="spacer"></div>
+    <a href="index.html" class="nav-home">🏠 Home</a>
+    <div class="nav-date" id="navDate"></div>
+
+    <!-- _______________________________theme dropdown_____________________________ -->
+
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🎨</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option" data-theme="default">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#c9b8f5,#f5c6e0)"></div> Purple
+        </div>
+        <div class="theme-option" data-theme="pink">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#f48fb1,#fce4ec)"></div> Pink
+        </div>
+        <div class="theme-option" data-theme="blue">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#90caf9,#b3e5fc)"></div> Blue
+        </div>
+        <div class="theme-option" data-theme="black">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#a78bfa,#312e81)"></div> Black
+        </div>
+      </div>
+    </div>
+
+    <!-- _______________________________sections dropdown_____________________________ -->
+
+    <div class="nav-dropdown">
+      <button class="dropdown-toggle" id="sectionsBtn">
+        Sections <span class="arrow">▼</span>
+      </button>
+      <div class="section-dropdown" id="sectionsDropdown">
+        <button class="sec-btn" onclick="location.href='calculator.html'">🧮 Mark Calculator</button>
+        <button class="sec-btn" onclick="location.href='stopwatch.html'">⏱️ Stopwatch</button>
+        <button class="sec-btn" onclick="location.href='todo.html'">✅ To-Do</button>
+        <button class="sec-btn" onclick="location.href='calendar.html'">📅 Calendar</button>
+        <button class="sec-btn" onclick="location.href='countdown.html'">⏳ Countdown</button>
+        <button class="sec-btn" onclick="location.href='flashcards.html'">🃏 Flashcards</button>
+      </div>
+    </div>
+
+    <!-- _______________________________3-dash button_____________________________ -->
+
+    <button class="three-dash" id="threeDash" aria-label="Menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+  </div>
+
+  <!-- _______________________________mobile dropdown_____________________________ -->
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="mobile-date" id="mobileDateDisplay"></div>
+    <a href="index.html"><button class="mobile-home">🏠 Home</button></a>
+    <a href="calculator.html"><button class="mobile-sec-btn"><span>🧮</span> Mark Calculator</button></a>
+    <a href="stopwatch.html"><button class="mobile-sec-btn"><span>⏱️</span> Stopwatch</button></a>
+    <a href="todo.html"><button class="mobile-sec-btn"><span>✅</span> To-Do</button></a>
+    <a href="calendar.html"><button class="mobile-sec-btn"><span>📅</span> Calendar</button></a>
+    <a href="countdown.html"><button class="mobile-sec-btn"><span>⏳</span> Countdown</button></a>
+    <a href="flashcards.html"><button class="mobile-sec-btn"><span>🃏</span> Flashcards</button></a>
+    <div class="mobile-themes">
+      <button class="mobile-theme-opt" data-theme="default">🌸 Purple</button>
+      <button class="mobile-theme-opt" data-theme="pink">💗 Pink</button>
+      <button class="mobile-theme-opt" data-theme="blue">💙 Blue</button>
+      <button class="mobile-theme-opt" data-theme="black">🖤 Black</button>
+    </div>
+  </div>
+
+</nav>
+
+<!-- _______________________________hero_____________________________ -->
+
+<div class="hero">
+  <h1>Let's Study! 🎓</h1>
+  <p>Everything you need to stay focused, organised, and on top of your grades — all in one place.</p>
+</div>
+
+<!-- _______________________________cards_____________________________ -->
+
+<div class="cards-section">
+  <div class="section-title">✨ Your Study Tools</div>
+  <div class="cards-grid">
+
+    <div class="card fade-up delay-1">
+      <div class="card-icon">🧮</div>
+      <span class="card-label">Grades</span>
+      <div class="card-title">Marks Calculator</div>
+      <div class="card-desc">Calculate your total score and average out of 20 for LS, GS, and SE streams instantly.</div>
+      <a href="calculator.html" class="card-btn">Open Calculator →</a>
+    </div>
+
+    <div class="card fade-up delay-2">
+      <div class="card-icon">⏱️</div>
+      <span class="card-label">Time</span>
+      <div class="card-title">Stopwatch</div>
+      <div class="card-desc">Track how long you spend on each subject or task. Save your sessions and stay aware.</div>
+      <a href="stopwatch.html" class="card-btn">Open Stopwatch →</a>
+    </div>
+
+    <div class="card fade-up delay-3">
+      <div class="card-icon">✅</div>
+      <span class="card-label">Tasks</span>
+      <div class="card-title">To-Do List</div>
+      <div class="card-desc">Add, check off, and manage your study tasks. Never forget an assignment again.</div>
+      <a href="todo.html" class="card-btn">Open To-Do →</a>
+    </div>
+
+    <div class="card fade-up delay-4">
+      <div class="card-icon">📅</div>
+      <span class="card-label">Schedule</span>
+      <div class="card-title">Calendar</div>
+      <div class="card-desc">Plan your study sessions, exams, and deadlines on a visual calendar.</div>
+      <a href="calendar.html" class="card-btn">Open Calendar →</a>
+    </div>
+
+    <div class="card fade-up delay-1">
+      <div class="card-icon">⏳</div>
+      <span class="card-label">Focus</span>
+      <div class="card-title">Countdown Timer</div>
+      <div class="card-desc">Set a countdown for your study sessions, exams, or breaks and stay on track.</div>
+      <a href="countdown.html" class="card-btn">Open Countdown →</a>
+    </div>
+
+    <div class="card fade-up delay-2">
+      <div class="card-icon">🃏</div>
+      <span class="card-label">Memory</span>
+      <div class="card-title">Flashcards</div>
+      <div class="card-desc">Create and flip through flashcards to memorise key concepts and definitions.</div>
+      <a href="flashcards.html" class="card-btn">Open Flashcards →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- _______________________________quote strip_____________________________ -->
+
+<div class="cards-section" style="padding-top:0;">
+  <div class="quote-strip fade-up">
+    <span class="q-icon">💡</span>
+    <blockquote id="quote-text"></blockquote>
+  </div>
+</div>
+
+<!-- _______________________________footer_____________________________ -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📖 Study Dudy</span>
+      <span class="footer-tagline">Stay focused. Stay ahead. 🎓</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="calculator.html">🧮 Marks</a>
+      <a href="stopwatch.html">⏱️ Stopwatch</a>
+      <a href="todo.html">✅ To-Do</a>
+      <a href="calendar.html">📅 Calendar</a>
+      <a href="countdown.html">⏳ Countdown</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+    </div>
+    <div class="footer-copy">
+      <span id="footerYear"></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

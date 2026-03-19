@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+
+<!-- _______________________________head_____________________________ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dudy — To-Do</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <script src="scriptA.js" defer></script>
+  <script src="scriptB.js" defer></script>
+  <script src="scriptD.js" defer></script>
+
+</head>
+<body>
+
+<!-- _______________________________preloader_____________________________ -->
+
+<div id="preloader">
+  <div class="loader-icon">📚</div>
+  <span class="loader-text">Study Dudy</span>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- _______________________________navbar_____________________________ -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📖</div>
+      <span class="logo-name">Study Dudy</span>
+    </a>
+    <div class="spacer"></div>
+    <a href="index.html" class="nav-home">🏠 Home</a>
+    <div class="nav-date" id="navDate"></div>
+
+    <!-- _______________________________theme dropdown_____________________________ -->
+
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🎨</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option" data-theme="default">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#c9b8f5,#f5c6e0)"></div> Purple
+        </div>
+        <div class="theme-option" data-theme="pink">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#f48fb1,#fce4ec)"></div> Pink
+        </div>
+        <div class="theme-option" data-theme="blue">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#90caf9,#b3e5fc)"></div> Blue
+        </div>
+        <div class="theme-option" data-theme="black">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#a78bfa,#312e81)"></div> Black
+        </div>
+      </div>
+    </div>
+
+    <!-- _______________________________sections dropdown_____________________________ -->
+
+    <div class="nav-dropdown">
+      <button class="dropdown-toggle" id="sectionsBtn">
+        Sections <span class="arrow">▼</span>
+      </button>
+      <div class="section-dropdown" id="sectionsDropdown">
+        <button class="sec-btn" onclick="location.href='calculator.html'">🧮 Mark Calculator</button>
+        <button class="sec-btn" onclick="location.href='todo.html'">✅ To-Do</button>
+        <button class="sec-btn" onclick="location.href='calendar.html'">📅 Calendar</button>
+      </div>
+    </div>
+
+    <!-- _______________________________3-dash button_____________________________ -->
+
+    <button class="three-dash" id="threeDash" aria-label="Menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+  </div>
+
+  <!-- _______________________________mobile dropdown_____________________________ -->
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="mobile-date" id="mobileDateDisplay"></div>
+    <a href="index.html"><button class="mobile-home">🏠 Home</button></a>
+    <a href="calculator.html"><button class="mobile-sec-btn"><span>🧮</span> Mark Calculator</button></a>
+    <a href="todo.html"><button class="mobile-sec-btn"><span>✅</span> To-Do</button></a>
+    <a href="calendar.html"><button class="mobile-sec-btn"><span>📅</span> Calendar</button></a>
+    <div class="mobile-themes">
+      <button class="mobile-theme-opt" data-theme="default">🌸 Purple</button>
+      <button class="mobile-theme-opt" data-theme="pink">💗 Pink</button>
+      <button class="mobile-theme-opt" data-theme="blue">💙 Blue</button>
+      <button class="mobile-theme-opt" data-theme="black">🖤 Black</button>
+    </div>
+  </div>
+
+</nav>
+
+<!-- _______________________________page content_____________________________ -->
+
+<div class="todo-page">
+
+  <div class="todo-header">
+    <h1 class="todo-title">✅ To-Do List</h1>
+    <p class="todo-subtitle">Add tasks, set priorities, and stay on top of your work.</p>
+  </div>
+
+  <!-- _______________________________add task form_____________________________ -->
+
+  <div class="todo-form-card">
+    <div class="form-row">
+      <input type="text" id="task-input" placeholder="What do you need to do?" />
+      <button class="btn btn-primary" id="addTaskBtn">+ Add</button>
+    </div>
+    <div class="form-row form-extras">
+      <select id="task-priority">
+        <option value="high">🔴 High</option>
+        <option value="medium" selected>🟡 Medium</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <input type="date" id="task-due" />
+      <input type="text" id="task-subject" placeholder="Subject / tag" />
+    </div>
+    <div class="form-row">
+      <textarea id="task-notes" placeholder="Notes (optional)" rows="2"></textarea>
+    </div>
+  </div>
+
+  <!-- _______________________________toolbar_____________________________ -->
+
+  <div class="todo-toolbar">
+
+    <div class="filter-group">
+      <span class="toolbar-label">Filter:</span>
+      <select id="filter-status">
+        <option value="all">All tasks</option>
+        <option value="active">Active</option>
+        <option value="done">Done</option>
+      </select>
+      <select id="filter-priority">
+        <option value="all">All priorities</option>
+        <option value="high">🔴 High</option>
+        <option value="medium">🟡 Medium</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <select id="filter-subject">
+        <option value="all">All subjects</option>
+      </select>
+    </div>
+
+    <div class="sort-group">
+      <span class="toolbar-label">Sort:</span>
+      <select id="sort-by">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="due">Due date</option>
+        <option value="priority">Priority</option>
+      </select>
+    </div>
+
+    <button class="btn btn-secondary" id="clearDoneBtn">🗑 Clear done</button>
+
+  </div>
+
+  <!-- _______________________________stats bar_____________________________ -->
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" id="stat-total">0</span>
+      <span class="stat-lbl">Total</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-active">0</span>
+      <span class="stat-lbl">Active</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-done">0</span>
+      <span class="stat-lbl">Done</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-high">0</span>
+      <span class="stat-lbl">🔴 High</span>
+    </div>
+    <div class="stat-progress">
+      <div class="stat-progress-label">
+        <span>Completion</span>
+        <span id="stat-pct">0%</span>
+      </div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-fill" id="stat-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _______________________________task list_____________________________ -->
+
+  <div id="task-list"></div>
+
+</div>
+
+<!-- _______________________________footer_____________________________ -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📖 Study Dudy</span>
+      <span class="footer-tagline">Stay focused. Stay ahead. 🎓</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="calculator.html">🧮 Marks</a>
+      <a href="todo.html">✅ To-Do</a>
+      <a href="calendar.html">📅 Calendar</a>
+    </div>
+    <div class="footer-copy">
+      <span id="footerYear"></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

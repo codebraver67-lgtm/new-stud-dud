@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+
+<!-- _______________________________head_____________________________ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Dudy — Marks Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="calculator.css" />
+  <script src="scriptA.js" defer></script>
+  <script src="scriptB.js" defer></script>
+  <script src="scriptC.js" defer></script>
+</head>
+<body>
+
+<!-- _______________________________preloader_____________________________ -->
+
+<div id="preloader">
+  <div class="loader-icon">📚</div>
+  <span class="loader-text">Study Dudy</span>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- _______________________________navbar_____________________________ -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">📖</div>
+      <span class="logo-name">Study Dudy</span>
+    </a>
+    <div class="spacer"></div>
+    <a href="index.html" class="nav-home">🏠 Home</a>
+    <div class="nav-date" id="navDate"></div>
+
+    <!-- _______________________________theme dropdown_____________________________ -->
+
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🎨</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option" data-theme="default">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#c9b8f5,#f5c6e0)"></div> Purple
+        </div>
+        <div class="theme-option" data-theme="pink">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#f48fb1,#fce4ec)"></div> Pink
+        </div>
+        <div class="theme-option" data-theme="blue">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#90caf9,#b3e5fc)"></div> Blue
+        </div>
+        <div class="theme-option" data-theme="black">
+          <div class="theme-swatch" style="background:linear-gradient(135deg,#a78bfa,#312e81)"></div> Black
+        </div>
+      </div>
+    </div>
+
+    <!-- _______________________________sections dropdown_____________________________ -->
+
+    <div class="nav-dropdown">
+      <button class="dropdown-toggle" id="sectionsBtn">
+        Sections <span class="arrow">▼</span>
+      </button>
+      <div class="section-dropdown" id="sectionsDropdown">
+        <button class="sec-btn" onclick="location.href='calculator.html'">🧮 Mark Calculator</button>
+        <button class="sec-btn" onclick="location.href='todo.html'">✅ To-Do</button>
+        <button class="sec-btn" onclick="location.href='calendar.html'">📅 Calendar</button>
+      </div>
+    </div>
+
+    <!-- _______________________________3-dash button_____________________________ -->
+
+    <button class="three-dash" id="threeDash" aria-label="Menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+  </div>
+
+  <!-- _______________________________mobile dropdown_____________________________ -->
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <div class="mobile-date" id="mobileDateDisplay"></div>
+    <a href="index.html"><button class="mobile-home">🏠 Home</button></a>
+    <a href="calculator.html"><button class="mobile-sec-btn"><span>🧮</span> Mark Calculator</button></a>
+    <a href="todo.html"><button class="mobile-sec-btn"><span>✅</span> To-Do</button></a>
+    <a href="calendar.html"><button class="mobile-sec-btn"><span>📅</span> Calendar</button></a>
+    <div class="mobile-themes">
+      <button class="mobile-theme-opt" data-theme="default">🌸 Purple</button>
+      <button class="mobile-theme-opt" data-theme="pink">💗 Pink</button>
+      <button class="mobile-theme-opt" data-theme="blue">💙 Blue</button>
+      <button class="mobile-theme-opt" data-theme="black">🖤 Black</button>
+    </div>
+  </div>
+
+</nav>
+
+<!-- _______________________________page content_____________________________ -->
+
+<div class="calc-page">
+
+  <div class="calc-header">
+    <h1 class="calc-title">🧮 Marks Calculator</h1>
+    <p class="calc-subtitle">Calculate your average for both semesters and your final grade.</p>
+  </div>
+
+  <!-- _______________________________stream tabs_____________________________ -->
+
+  <div class="stream-tabs">
+    <button class="stream-tab active" data-stream="LS">🔬 Life Sciences</button>
+    <button class="stream-tab" data-stream="GS">⚗️ General Sciences</button>
+    <button class="stream-tab" data-stream="SE">📊 Sociology & Eco</button>
+    <button class="stream-tab" data-stream="custom">✏️ My School</button>
+  </div>
+
+  <!-- _______________________________semester tabs_____________________________ -->
+
+  <div class="sem-tabs">
+    <button class="sem-tab active" data-sem="1">Semester 1</button>
+    <button class="sem-tab" data-sem="2">Semester 2</button>
+  </div>
+
+  <!-- _______________________________calculator layout_____________________________ -->
+
+  <div class="calc-layout">
+
+    <!-- subjects panel -->
+    <div class="calc-card">
+
+      <!-- semester 1 panel -->
+      <div class="sem-panel active" id="panel-1">
+        <div id="subjects-1"></div>
+      </div>
+
+      <!-- semester 2 panel -->
+      <div class="sem-panel" id="panel-2">
+        <div id="subjects-2"></div>
+      </div>
+
+      <!-- custom subjects area -->
+      <div id="custom-area" style="display:none;">
+        <hr class="divider" />
+        <p class="custom-hint">Add your school's subjects and their coefficients:</p>
+        <div id="custom-rows"></div>
+        <div class="custom-add-row">
+          <input type="text"   id="new-subj-name" placeholder="Subject name" />
+          <input type="number" id="new-subj-coef" placeholder="Max mark" min="1" max="999" />
+          <button class="btn btn-primary" id="addSubjBtn">+ Add</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="calc-actions">
+        <button class="btn btn-primary"   id="calcBtn">Calculate</button>
+        <button class="btn btn-secondary" id="clearBtn">Clear</button>
+      </div>
+
+    </div>
+
+    <!-- result panel -->
+    <div class="result-card">
+
+      <h3 class="result-heading">Your Result</h3>
+
+      <div class="result-score" id="result-score">—</div>
+      <div class="result-label" id="result-label">Enter marks and hit Calculate</div>
+      <div class="result-grade" id="result-grade" style="display:none;"></div>
+
+      <div class="progress-wrap">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- semester summary -->
+      <div class="sem-summary">
+        <div class="sem-summary-item">
+          <span>Semester 1</span>
+          <span id="sem1-avg">—</span>
+        </div>
+        <div class="sem-summary-item">
+          <span>Semester 2</span>
+          <span id="sem2-avg">—</span>
+        </div>
+        <div class="sem-summary-item final">
+          <span>Final Average</span>
+          <span id="final-avg">—</span>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- breakdown -->
+      <div class="breakdown" id="breakdown">
+        <p class="breakdown-empty">No data yet.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- _______________________________footer_____________________________ -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📖 Study Dudy</span>
+      <span class="footer-tagline">Stay focused. Stay ahead. 🎓</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="calculator.html">🧮 Marks</a>
+      <a href="todo.html">✅ To-Do</a>
+      <a href="calendar.html">📅 Calendar</a>
+    </div>
+    <div class="footer-copy">
+      <span id="footerYear"></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
